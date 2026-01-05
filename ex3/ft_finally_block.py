@@ -1,5 +1,6 @@
 def water_plants(plant_list) -> None:
-    """Simulates watering a list of plants, ensuring cleanup happens regardless of errors."""
+    """Simulates watering a list of plants, ensuring cleanup
+        happens regardless of errors."""
     print("Opening watering system")
     try:
         for plant in plant_list:
@@ -24,6 +25,7 @@ def test_watering_system() -> None:
     plants_with_error = ["tomato", None, "carrots"]
     water_plants(plants_with_error)
     print("\nCleanup always happens, even with errors!")
+
 
 if __name__ == "__main__":
     test_watering_system()
