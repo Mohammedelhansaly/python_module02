@@ -1,20 +1,25 @@
 class GardenError(Exception):
+    """Base class for garden management errors."""
     pass
 
 
 class PlantError(GardenError):
+    """Exception raised for plant-related errors."""
     pass
 
 
 class WaterError(GardenError):
+    """Exception raised for watering-related errors."""
     pass
 
 
 class HealthError(GardenError):
+    """Exception raised for plant health-related errors."""
     pass
 
 
 class Plant:
+    """Class representing a plant in the garden."""
     def __init__(self, name: str, water_level: int,
                  sunlight_hours: int) -> None:
         self.name = name
@@ -23,11 +28,13 @@ class Plant:
 
 
 class GardenManager:
+    """Class to manage garden operations."""
     plants = []
     water_tank = 10
 
     @classmethod
     def add_plant(cls, plant) -> None:
+        """Add a plant to the garden."""
         try:
             if not isinstance(plant.name, str) or plant.name == "":
                 raise PlantError("Plant name cannot be empty")
@@ -38,6 +45,7 @@ class GardenManager:
 
     @classmethod
     def water_plants(cls) -> None:
+        """Water all plants in the garden."""
         try:
             print("Watering plants...")
             print("Opening watering system")
@@ -54,6 +62,7 @@ class GardenManager:
 
     @classmethod
     def check_plant_health(cls) -> None:
+        """Check the health of all plants in the garden."""
         try:
             for plant in cls.plants:
                 if plant.name is None:
